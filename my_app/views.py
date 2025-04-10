@@ -61,6 +61,8 @@ class ActorList(LoginRequiredMixin, ListView):
 
 class ActorDetail(LoginRequiredMixin, DetailView):
     model = Actor
+    template_name = 'actors/detail.html'
+    context_object_name = 'actor'
 
 class ActorUpdate(LoginRequiredMixin, UpdateView):
     model = Actor
@@ -69,6 +71,7 @@ class ActorUpdate(LoginRequiredMixin, UpdateView):
 class ActorDelete(LoginRequiredMixin, DeleteView):
     model = Actor
     success_url = '/actors/'
+    template_name = 'actors/actor_confirm_delete.html'
 
 @login_required
 def associate_actor(request, movie_id, actor_id):
@@ -89,7 +92,7 @@ def signup(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('cat-index')
+            return redirect('movie-index')
         else:
             error_message = 'Invalid sign up - try again'
     form = UserCreationForm()

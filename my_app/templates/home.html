@@ -4,15 +4,15 @@
   <h2>Welcome to Movie Buff!</h2>
   <p>Track your favorite movies and the actors who bring them to life.</p>
   <section class="logo-container">
-    <div class="cat-container">
-      <img src="{% static 'images/splash.svg' %}" alt="The Cat Collector Cat" />
+    <div class="movie-container">
+      <img src="{% static 'images/splash.svg' %}" alt="The movie Collector movie" />
     </div>
     <img
       src="{% static 'images/logotype.svg' %}"
-      alt="Text reads: Cat Collector"
+      alt="Text reads: movie Collector"
     />
   </section>
-  {% if not user.is_authenticated %}
+  {% if not user.is_authentimovieed %}
   <section>
     <form action="{% url 'home' %}" method="post" class="login">
       <h1>Login</h1>

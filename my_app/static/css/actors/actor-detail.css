@@ -1,4 +1,4 @@
-.cat-container {
+.movie-container {
     padding: 35px 30px;
     display: flex;
     flex-direction: column;
@@ -6,7 +6,7 @@
     justify-content: center;
   }
   
-  .cat-img {
+  .movie-img {
     width: 75%;
     max-width: 350px;
   }
@@ -16,15 +16,15 @@
     border-radius: var(--card-border-radius);
   }
   
-  .cat-details {
+  .movie-details {
     width: 98%;
   }
   
-  .cat-actions {
+  .movie-actions {
     margin-top: 20px;
   }
   
-  .feedings-toy-container {
+  .feedings-actor-container {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
@@ -41,7 +41,7 @@
     margin: 0 8px;
   }
   
-  .toy-container {
+  .actor-container {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -56,45 +56,45 @@
   
   .unfed,
   .fed,
-  .no-toys,
-  .all-toys {
+  .no-actors,
+  .all-actors {
     margin: 0;
     font-weight: bold;
   }
   
   .unfed,
-  .no-toys {
+  .no-actors {
     color: var(--danger);
   }
   
   .fed,
-  .all-toys {
+  .all-actors {
     color: var(--submit);
   }
   
-  .cat-details h1 {
+  .movie-details h1 {
     font-size: var(--font-xxl);
     margin: 15px 0 3px;
   }
   
-  .cat-details h2 {
+  .movie-details h2 {
     font-size: var(--font-xl);
     margin: 0 0 10px;
     margin-top: 0;
     margin-bottom: 10px;
   }
   
-  .cat-details h3 {
+  .movie-details h3 {
     margin: 20px 0 10px;
     font-size: var(--font-l);
   }
   
-  .cat-details p {
+  .movie-details p {
     font-size: var(--font-reg);
     margin: 5px 0;
   }
   
-  .feedings-toy-container > section {
+  .feedings-actor-container > section {
     width: 80%;
     min-width: 360px;
     border: var(--borders);
@@ -117,13 +117,13 @@
   }
   
   .feedings h2,
-  .toys h2 {
+  .actors h2 {
     font-size: 3.2rem;
     margin: 0;
   }
   
   .feedings h3,
-  .toys h3 {
+  .actors h3 {
     font-size: var(--font-xl);
     margin: 10px 0;
   }
@@ -162,16 +162,16 @@
     background-color: #f3f3fd;
   }
   
-  .toy-container p {
+  .actor-container p {
     margin: 12px 0;
   }
   
-  .toy-container a {
+  .actor-container a {
     text-decoration: none;
     color: #111;
   }
   
-  .toy-container .btn {
+  .actor-container .btn {
     padding: 3px 10px;
     margin-left: 10px;
   }
@@ -188,37 +188,37 @@
   }
   
   @media only screen and (min-width: 768px) {
-    .cat-container {
+    .movie-container {
       padding: 35px 30px;
       flex-direction: row;
       align-items: center;
       justify-content: start;
     }
   
-    .cat-img {
+    .movie-img {
       width: 25%;
       max-width: 250px;
       margin-right: 25px;
     }
   
-    .feedings-toy-container {
+    .feedings-actor-container {
       flex-direction: row;
       justify-content: space-around;
       align-items: flex-start;
     }
   
-    .feedings-toy-container > section {
+    .feedings-actor-container > section {
       width: 45%;
     }
   }
   
   @media only screen and (min-width: 1024px) {
-    .feedings-toy-container {
+    .feedings-actor-container {
       padding: 0 40px;
     }
   }
   
-  .cat-container {
+  .movie-container {
   padding: 35px 30px;
   display: flex;
   flex-direction: column;
@@ -226,7 +226,7 @@
   justify-content: center;
 }
 
-.cat-img {
+.movie-img {
   width: 75%;
   max-width: 350px;
 }
@@ -236,15 +236,15 @@
   border-radius: var(--card-border-radius);
 }
 
-.cat-details {
+.movie-details {
   width: 98%;
 }
 
-.cat-actions {
+.movie-actions {
   margin-top: 20px;
 }
 
-.feedings-toy-container {
+.feedings-actor-container {
   display: flex;
   flex-direction: column;
   padding-bottom: 20px;
@@ -261,7 +261,7 @@
   margin: 0 8px;
 }
 
-.toy-container {
+.actor-container {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -276,45 +276,45 @@
 
 .unfed,
 .fed,
-.no-toys,
-.all-toys {
+.no-actors,
+.all-actors {
   margin: 0;
   font-weight: bold;
 }
 
 .unfed,
-.no-toys {
+.no-actors {
   color: var(--danger);
 }
 
 .fed,
-.all-toys {
+.all-actors {
   color: var(--submit);
 }
 
-.cat-details h1 {
+.movie-details h1 {
   font-size: var(--font-xxl);
   margin: 15px 0 3px;
 }
 
-.cat-details h2 {
+.movie-details h2 {
   font-size: var(--font-xl);
   margin: 0 0 10px;
   margin-top: 0;
   margin-bottom: 10px;
 }
 
-.cat-details h3 {
+.movie-details h3 {
   margin: 20px 0 10px;
   font-size: var(--font-l);
 }
 
-.cat-details p {
+.movie-details p {
   font-size: var(--font-reg);
   margin: 5px 0;
 }
 
-.feedings-toy-container > section {
+.feedings-actor-container > section {
   width: 80%;
   min-width: 360px;
   border: var(--borders);
@@ -337,13 +337,13 @@
 }
 
 .feedings h2,
-.toys h2 {
+.actors h2 {
   font-size: 3.2rem;
   margin: 0;
 }
 
 .feedings h3,
-.toys h3 {
+.actors h3 {
   font-size: var(--font-xl);
   margin: 10px 0;
 }
@@ -382,16 +382,16 @@
   background-color: #f3f3fd;
 }
 
-.toy-container p {
+.actor-container p {
   margin: 12px 0;
 }
 
-.toy-container a {
+.actor-container a {
   text-decoration: none;
   color: #111;
 }
 
-.toy-container .btn {
+.actor-container .btn {
   padding: 3px 10px;
   margin-left: 10px;
 }
@@ -408,32 +408,32 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .cat-container {
+  .movie-container {
     padding: 35px 30px;
     flex-direction: row;
     align-items: center;
     justify-content: start;
   }
 
-  .cat-img {
+  .movie-img {
     width: 25%;
     max-width: 250px;
     margin-right: 25px;
   }
 
-  .feedings-toy-container {
+  .feedings-actor-container {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
   }
 
-  .feedings-toy-container > section {
+  .feedings-actor-container > section {
     width: 45%;
   }
 }
 
 @media only screen and (min-width: 1024px) {
-  .feedings-toy-container {
+  .feedings-actor-container {
     padding: 0 40px;
   }
 }
