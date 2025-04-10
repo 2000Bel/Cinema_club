@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{{ actor.name }}</h1>
+  <p>{{ actor.bio }}</p>
+
+  <a href="{% url 'actor-update' actor.id %}">Edit</a>
+  <a href="{% url 'actor-delete' actor.id %}">Delete</a>
+  <a href="{% url 'actor-index' %}">Back to Actors</a>
+{% endblock %}

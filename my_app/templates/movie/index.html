@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>My Movies</h1>
+<a href="{% url 'movie-create' %}">Add Movie</a>
+{% for movie in movies %}
+<div>
+    <a href="{% url 'movie-detail' movie.id %}">{{ movie.title }}</a>
+    <p>{{ movie.genre }} | {{ movie.year }}</p>
+</div>
+{% empty %}
+<p>No movies yet!</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>{{ movie.title }}</h1>
+  <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" style="height: 300px;">
+  <p><strong>Genre:</strong> {{ movie.genre }}</p>
+  <p><strong>Year:</strong> {{ movie.year }}</p>
+  <p><strong>Description:</strong> {{ movie.description }}</p>
+
+  <a href="{% url 'movie-update' movie.id %}">Edit</a>
+  <a href="{% url 'movie-delete' movie.id %}">Delete</a>
+
+  <hr>
+  <h3>Actors in this Movie:</h3>
+  <ul>
+    {% for actor in movie.actors.all %}
+    <li>{{ actor.name }} <a href="{% url 'remove-actor' movie.id actor.id %}">Remove</a></li>
+    {% empty %}
+    <p>No actors associated yet.</p>
+    {% endfor %}
+  </ul>
+
+  <h4>Add Actor</h4>
+  <form method="POST">
+    {% csrf_token %}
+    {{ actor_form.as_p }}
+    <button type="submit">Add</button>
+  </form>
+
+  <a href="{% url 'movie-index' %}">Back to Movies</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Actors</h1>
+<a href="{% url 'actor-create' %}">Add Actor</a>
+{% for actor in actor_list %}
+<div>
+    <a href="{% url 'actor-detail' actor.id %}">{{ actor.name }}</a>
+</div>
+{% empty %}
+<p>No actors added yet!</p>
+{% endfor %}
+{% endblock %}
