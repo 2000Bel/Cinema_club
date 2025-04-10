@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>My Movies</h1>
-<a href="{% url 'movie-create' %}">Add Movie</a>
-{% for movie in movies %}
+<h1>Actors</h1>
+<a href="{% url 'actor-create' %}">Add Actor</a>
+{% for actor in actor_list %}
 <div>
-    <a href="{% url 'movie-detail' movie.id %}">{{ movie.title }}</a>
-    <p>{{ movie.genre }} | {{ movie.year }}</p>
+    <a href="{% url 'actor-detail' actor.id %}">{{ actor.name }}</a>
 </div>
 {% empty %}
-<p>No movies yet!</p>
+<p>No actors added yet!</p>
 {% endfor %}
 {% endblock %}
