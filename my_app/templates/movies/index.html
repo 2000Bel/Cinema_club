@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>My Movies</h1>
+  {% for movie in movies %}
+    <div>
+      <h2>{{ movie.title }}</h2>
+      <p>{{ movie.description }}</p>
+    </div>
+  {% empty %}
+    <p>No movies found.</p>
+  {% endfor %}
+{% endblock %}
