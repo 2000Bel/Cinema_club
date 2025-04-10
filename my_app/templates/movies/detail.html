@@ -1,128 +1,57 @@
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
+
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/movies/movie-detail.css' %}" />
-{% endblock %} 
+  <link rel="stylesheet" href="{% static 'css/movies/movie-detail.css' %}" />
+{% endblock %}
+
 {% block content %}
 <section class="movie-container">
-  <div class="movie-img">
-    <img src="{% static 'images/sk8r-boi-movie.svg' %}" alt="A skater boy movie" />
-  </div>
-  <div class="movie-details">
-    <h1>{{ movie.name }}</h1>
-    {% if movie.age > 0 %}
-      <h2>A {{ movie.age }} year old {{ movie.breed }}</h2>
-    {% else %}
-      <h2>A {{ movie.breed }} kitten.</h2>
-    {% endif %}
-    <p>{{ movie.description }}</p>
-    <h3>Add a Feeding</h3><form
-    action="{% url 'add-feeding' movie.id %}"
-    method="post"
-    class="subsection-content"
-    autocomplete="off"
-  >
-    {% csrf_token %} 
-    {{ feeding_form.as_p }}
-    <button type="submit" class="btn submit">Add Feeding</button>
-  </form>
-    <div class="movie-actions">
-        <a href="{% url 'movie-update' movie.id %}" class="btn warn">Edit</a>
-        <a href="{% url 'movie-delete' movie.id %}" class="btn danger">Delete</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Existing movie-container above -->
-<div class="feedings-actor-container">
-    <section class="feedings">
-      <div class="subsection-title">
-        <h2>Feedings</h2>
-        <img
-          src="{% static 'images/movie-cone.svg' %}"
-          alt="An ice cream cone movie"
-        />
-        <img src="{% static 'images/movie-onigiri.svg' %}" alt="A movie as onigiri" />
-        <img
-          src="{% static 'images/kitty-kabob.svg' %}"
-          alt="A kabob of kittens"
-        />
-      </div>
-      <form method="post" class="subsection-content" autocomplete="off">
-        {% csrf_token %} 
-        {{ feeding_form.as_p }}
-        <button type="submit" class="btn submit">Add Feeding</button>
-      </form>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Meal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for feeding in movie.feeding_set.all %}
-            <tr>
-              <td>{{feeding.date}}</td>
-              <td>{{feeding.get_meal_display}}</td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </section>
 
-    <section class="actors">
-      <div class="subsection-title">
-        <h2>actors</h2>
-        <img src="{% static 'images/string.svg' %}" alt="A ball of string" />
-        <img src="{% static 'images/mouse.svg' %}" alt="A mouse" />
-        <img src="{% static 'images/fish.svg' %}" alt="A fishy actor" />
-      </div>
-    
-      <!-- displaying a movie's actors -->
-      <h3>{{ movie.name }}'s actors</h3>
-      <div class="subsection-content">
-        {% if movie.actors.count %} 
-          {% for actor in movie.actors.all %}
-            <div class="actor-container">
-              <div class="color-block" style="background-color: {{ actor.color }}"></div>
-              <a href="{% url 'actor-detail' actor.id %}">
-                <p>A {{ actor.color }} {{ actor.name }}</p>
-              </a>
-            </div>
-          {% endfor %} 
-        {% else %}
-          <p class="no-actors">{{movie.name}} doesn't have any actors!</p>
-        {% endif %}
-      </div>
-    
-      <h3>Available actors</h3>
-      <div class="subsection-content">
-        <h3>Available actors</h3>
-<div class="subsection-content">
-  {% if actors.count %} 
-    {% for actor in actors.all %}
-    <div class="actor-container">
-      <form action="{% url 'remove-actor' movie.id actor.id %}" method="post">
-      {% csrf_token %}
-      <button type="submit" class="btn btn-danger">Remove actor</button>
-    </form>
-      <div class="color-block" style="background-color: {{ actor.color }}"></div>
-      <a href="{% url 'actor-detail' actor.id %}">
-        <p>A {{ actor.color }} {{ actor.name }}</p>
-      </a>
-      <form action="{% url 'associate-actor' movie.id actor.id %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn submit">Give actor</button>
-      </form>
-    </div>
-    {% endfor %}
-    {% else %}
-    <p class="all-actors">{{movie.name}} already has all the available actors 🥳</p>
-    {% endif %}
-  </div>
-</div>
+  <div class="movie-details">
+    <h1>{{ movie.title }}</h1>
+    <h2>{{ movie.genre }} — {{ movie.year }}</h2>
+    <p>{{ movie.description }}</p>
+
+    <div class="movie-actions">
+      <a href="{% url 'movie-update' movie.id %}" class="btn warn">Edit</a>
+      <a href="{% url 'movie-delete' movie.id %}" class="btn danger">Delete</a>
+    </div>
+  </div>
 </section>
-</div>
+
+<hr />
+
+<section class="actors">
+  <div class="subsection-title">
+    <h2>Actors</h2>
+    <img src="{% static 'images/movie-star.svg' %}" alt="Movie Star" />
+  </div>
+
+  <div class="subsection-content">
+    {% if movie.actors.count %}
+      <ul>
+        {% for actor in movie.actors.all %}
+          <li>
+            {{ actor.name }} — <em>{{ actor.bio }}</em>
+            <a href="{% url 'remove-actor' movie.id actor.id %}" class="btn danger">Remove</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p><em>No actors associated with this movie yet.</em></p>
+    {% endif %}
+  </div>
+
+  <h3>Add an Actor</h3>
+  <form action="{% url 'associate-actor' movie.id %}" method="POST">
+    {% csrf_token %}
+    <select name="actor_id">
+      {% for actor in available_actors %}
+        <option value="{{ actor.id }}">{{ actor.name }}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" class="btn submit">Add Actor</button>
+  </form>
+</section>
 {% endblock %}
-  

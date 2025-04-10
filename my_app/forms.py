@@ -4,13 +4,7 @@ from .models import Movie
 class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
-        fields = ['year']
+        fields = ['title', 'genre', 'year', 'description']
         widgets = {
-            'year': forms.DateInput(
-                format=('%Y-%m-%d'),
-                attrs={
-                    'placeholder': 'Select release year',
-                    'type': 'date'
-                }
-            )
+            'year': forms.DateInput(attrs={'type': 'date'})
         }

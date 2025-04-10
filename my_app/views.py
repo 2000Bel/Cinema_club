@@ -71,7 +71,6 @@ class ActorUpdate(LoginRequiredMixin, UpdateView):
 class ActorDelete(LoginRequiredMixin, DeleteView):
     model = Actor
     success_url = '/actors/'
-    template_name = 'actors/actor_confirm_delete.html'
 
 @login_required
 def associate_actor(request, movie_id, actor_id):
