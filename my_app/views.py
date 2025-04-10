@@ -38,7 +38,7 @@ def movie_detail(request, movie_id):
 
 class MovieCreate(LoginRequiredMixin, CreateView):
     model = Movie
-    fields = ['title', 'genre', 'year', 'description', 'poster']
+    fields = ['title', 'genre', 'year', 'description']
 
 def form_valid(self, form):
     form.instance.user = self.request.user
@@ -46,7 +46,7 @@ def form_valid(self, form):
 
 class MovieUpdate(LoginRequiredMixin, UpdateView):
     model = Movie
-    fields = ['description', 'poster']
+    fields = ['description']
 
 class MovieDelete(LoginRequiredMixin, DeleteView):
     model = Movie

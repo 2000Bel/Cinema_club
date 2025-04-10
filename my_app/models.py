@@ -46,7 +46,6 @@ class Movie(models.Model):
    genre = models.CharField(max_length=3, choices=GENRES)
    year = models.DateField('Release Year')
    description = models.TextField(max_length=500)
-   poster = models.URLField()
    user = models.ForeignKey(User, on_delete=models.CASCADE)
    actors = models.ManyToManyField(Actor)
 

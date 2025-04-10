@@ -30,7 +30,6 @@ class Migration(migrations.Migration):
                 ('genre', models.CharField(choices=[('A', 'Action'), ('B', 'Biography'), ('C', 'Comedy'), ('D', 'Drama'), ('E', 'Western'), ('F', 'Fantasy'), ('G', 'Crime'), ('H', 'Horror'), ('I', 'Animation'), ('J', 'Adventure'), ('K', 'K-Drama'), ('L', 'History'), ('M', 'Musical'), (' N', 'None'), ('O', 'Other'), ('P', 'Documentary'), ('R', 'Romance'), ('S', 'Sport'), ('SF', 'Sci-Fi'), ('T', 'Thriller'), ('W', 'War'), ('X', 'Family'), ('Y', 'Mystery'), ('Z', 'Short Film')], max_length=3)),
                 ('year', models.DateField(verbose_name='Release Year')),
                 ('description', models.TextField(max_length=500)),
-                ('poster', models.URLField()),
                 ('actors', models.ManyToManyField(to='my_app.actor')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
