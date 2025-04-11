@@ -15,12 +15,12 @@
 
 <section class="card-container">
   {% for actor in actor_list %}
-    <div class="card" style="border-color: {{ actor.color }}">
-      <div class="card-bg" style="background-color: {{ actor.color }}"></div>
+    <div class="card" style="border-bio: {{ actor.bio }}">
+      <div class="card-bg" style="background-bio: {{ actor.bio }}"></div>
       <a href="{% url 'actor-detail' actor.id %}">
         <div class="card-content">
           <h2>{{ actor.name }}</h2>
-          <p>A {{ actor.color }} actor</p>
+          <p>A {{ actor.bio }} actor</p>
         </div>
       </a>
     </div>

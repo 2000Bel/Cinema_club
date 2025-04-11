@@ -1,39 +1,44 @@
+.page-header h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .form-container {
-  display: flex;
-  flex-direction: column;
+  max-width: 600px;
+  margin: auto;
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-fields p {
+  margin-bottom: 15px;
+}
+
+.form-fields label {
+  font-weight: bold;
+}
+
+.form-fields input,
+.form-fields select,
+.form-fields textarea {
   width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
 }
 
-table {
-  padding: 0 40px;
+.btn.submit {
+  background-color: #3e7eff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  display: block;
   width: 100%;
-  border-spacing: 0 20px;
-}
-
-th {
-  text-align: left;
-  padding: 6px 20px 0 0;
-  font-weight: normal;
-  vertical-align: top;
-  font-size: var(--font-reg);
-}
-
-td {
-  max-width: 60%;
-}
-
-td > * {
-  width: 100%;
-  padding: 2px 4px;
-  font-size: var(--font-l);
-}
-
-td > textarea {
-  height: calc(4 * var(--font-l) + 8px);
-  font-family: inherit;
-}
-
-.btn {
-  align-self: flex-end;
-  margin-right: 40px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
 }

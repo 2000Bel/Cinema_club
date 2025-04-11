@@ -11,7 +11,18 @@
         <h1>{{ movie.title }}</h1>
         <h2>{{ movie.genre }} — {{ movie.year }}</h2>
         <p>{{ movie.description }}</p>
-
+        {% if movie.poster_url %}
+  <img src="{{ movie.poster_url }}" alt="Poster for {{ movie.title }}" style="max-width: 300px; height: auto;">
+{% endif %}
+<p>Rating:
+    {% for i in "12345"|make_list %}
+      {% if forloop.counter <= movie.rating %}
+        ★
+      {% else %}
+        ☆
+      {% endif %}
+    {% endfor %}
+  </p>
         <div class="movie-actions">
             <a href="{% url 'movie-update' movie.id %}" class="btn warn">Edit</a>
             <a href="{% url 'movie-delete' movie.id %}" class="btn danger">Delete</a>
@@ -32,9 +43,9 @@
 <ul>
     {% for actor in movie.actors.all %}
     <div class="actor-container">
-        <div class="color-block" style="background-color: {{ actor.color }}"></div>
+        <div class="bio-block" style="background-bio: {{ actor.bio }}"></div>
         <a href="{% url 'actor-detail' actor.id %}">
-          <p>A {{ actor.color }} {{ actor.name }}</p>
+          <p>A {{ actor.bio }} {{ actor.name }}</p>
         </a>
         <form action="{% url 'remove-actor' movie.id actor.id %}" method="post">
             {% csrf_token %}
@@ -53,9 +64,9 @@
 {% for actor in actors.all %}
 <div class="actor-container">
 
-<div class="color-block" style="background-color: {{ actor.color }}"></div>
+<div class="bio-block" style="background-color: {{ actor.bio }}"></div>
 <a href="{% url 'actor-detail' actor.id %}">
-  <p>A {{ actor.color }} {{ actor.name }}</p>
+  <p>A {{ actor.bio }} {{ actor.name }}</p>
 </a>
 <form action="{% url 'associate-actor' movie.id actor.id %}" method="post">
   {% csrf_token %}

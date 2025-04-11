@@ -46,6 +46,8 @@ class Movie(models.Model):
    genre = models.CharField(max_length=3, choices=GENRES)
    year = models.DateField('Release Year')
    description = models.TextField(max_length=500)
+   poster_url = models.URLField('Poster (optional)', blank=True)
+   rating = models.IntegerField('Rating (1 to 5)', choices=[(i, f'{i} Star{"s" if i > 1 else ""}') for i in range(1, 6)], default=3)
    user = models.ForeignKey(User, on_delete=models.CASCADE)
    actors = models.ManyToManyField(Actor)
 
