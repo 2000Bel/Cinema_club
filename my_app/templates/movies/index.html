@@ -4,6 +4,7 @@
   <h1>My Movies</h1>
   {% for movie in movies %}
     <div>
+      <a href="{% url 'movie-detail' movie.id %}">
       <h2>{{ movie.title }}</h2>
       <p>{{ movie.description }}</p>
     </div>
@@ -11,3 +12,5 @@
     <p>No movies found.</p>
   {% endfor %}
 {% endblock %}
+
+

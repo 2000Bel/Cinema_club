@@ -82,7 +82,7 @@ def remove_actor(request, movie_id, actor_id):
     movie = Movie.objects.get(id=movie_id)
     actor = Actor.objects.get(id=actor_id)
     movie.actors.remove(actor_id)
-    return redirect('movie-detail', movie_id=movie.id)
+    return redirect('movie-detail', movie_id=movie_id)
 
 def signup(request):
     error_message = ''

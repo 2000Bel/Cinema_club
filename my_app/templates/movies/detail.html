@@ -26,30 +26,48 @@
         <h2>Actors</h2>
         <img src="{% static 'images/movie-star.svg' %}" alt="Movie Star" />
     </div>
+    <h3>Actors of this movie</h3>
 <div class="subsection-content">
     {% if movie.actors.count %}
 <ul>
     {% for actor in movie.actors.all %}
-<li>
-    {{ actor.name }} — <em>{{ actor.bio }}</em>
-<a href="{% url 'remove-actor' movie.id actor.id %}" class="btn danger">Remove</a>
-</li>
-{% endfor %}
-</ul>
-{% else %}
-<p><em>No actors associated with this movie yet.</em></p>
-{% endif %}
+    <div class="actor-container">
+        <div class="color-block" style="background-color: {{ actor.color }}"></div>
+        <a href="{% url 'actor-detail' actor.id %}">
+          <p>A {{ actor.color }} {{ actor.name }}</p>
+        </a>
+        <form action="{% url 'remove-actor' movie.id actor.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Remove actor</button>
+            </form>
+      </div>
+    {% endfor %} 
+  {% else %}
+    <p class="no-actors">{{movie.name}} No actors associated with this movie yet.</p>
+  {% endif %}
 </div>
 
-<h3>Add an Actor</h3>
-{% for actor in available_actors %}
-<form action="{% url 'associate-actor' movie.id actor.id%}" method="POST">
-    {% csrf_token %}
-    <select name="actor_id">
-        <option value="{{ actor.id }}">{{ actor.name }}</option>
-    </select>
-    <button type="submit" class="btn submit">Add Actor</button>
+  <h3>Actors not in movie</h3>
+<div class="subsection-content">
+{% if actors.count %} 
+{% for actor in actors.all %}
+<div class="actor-container">
+
+<div class="color-block" style="background-color: {{ actor.color }}"></div>
+<a href="{% url 'actor-detail' actor.id %}">
+  <p>A {{ actor.color }} {{ actor.name }}</p>
+</a>
+<form action="{% url 'associate-actor' movie.id actor.id %}" method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn submit">Add actor to movie</button>
 </form>
+</div>
 {% endfor %}
+{% else %}
+<p class="all-actors">{{movie.name}} This Movie has all the actors in your list</p>
+{% endif %}
+</div>
+</div>
 </section>
+</div>
 {% endblock %}
