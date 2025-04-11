@@ -38,15 +38,15 @@ def movie_detail(request, movie_id):
 
 class MovieCreate(LoginRequiredMixin, CreateView):
     model = Movie
-    fields = ['title', 'genre', 'year', 'description']
+    form_class = MovieForm
 
-def form_valid(self, form):
-    form.instance.user = self.request.user
-    return super().form_valid(form)
+    def form_valid(self, form):
+      form.instance.user = self.request.user
+      return super().form_valid(form)
 
 class MovieUpdate(LoginRequiredMixin, UpdateView):
     model = Movie
-    fields = ['description']
+    form_class = MovieForm
 
 class MovieDelete(LoginRequiredMixin, DeleteView):
     model = Movie

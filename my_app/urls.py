@@ -15,7 +15,7 @@ urlpatterns = [
     path('actors/', views.ActorList.as_view(), name='actor-index'),
     path('actors/<int:pk>/update/', views.ActorUpdate.as_view(), name='actor-update'),
     path('actors/<int:pk>/delete/', views.ActorDelete.as_view(), name='actor-delete'),
-    path('movies/<int:movie_id>/associate-actor/<int:actor_id>/', views.associate_actor, name='associate-actor'),
+    path('movies/<int:movie_id>/iate-actor/<int:actor_id>/', views.associate_actor, name='associate-actor'),
     path('movies/<int:movie_id>/remove-actor/<int:actor_id>/', views.remove_actor, name='remove-actor'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', views.signup, name='signup'),

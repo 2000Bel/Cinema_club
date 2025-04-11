@@ -1,57 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/movies/movie-detail.css' %}" />
+<link rel="stylesheet" href="{% static 'css/movies/movie-detail.css' %}" />
 {% endblock %}
 
 {% block content %}
 <section class="movie-container">
 
-  <div class="movie-details">
-    <h1>{{ movie.title }}</h1>
-    <h2>{{ movie.genre }} — {{ movie.year }}</h2>
-    <p>{{ movie.description }}</p>
+    <div class="movie-details">
+        <h1>{{ movie.title }}</h1>
+        <h2>{{ movie.genre }} — {{ movie.year }}</h2>
+        <p>{{ movie.description }}</p>
 
-    <div class="movie-actions">
-      <a href="{% url 'movie-update' movie.id %}" class="btn warn">Edit</a>
-      <a href="{% url 'movie-delete' movie.id %}" class="btn danger">Delete</a>
-    </div>
-  </div>
+        <div class="movie-actions">
+            <a href="{% url 'movie-update' movie.id %}" class="btn warn">Edit</a>
+            <a href="{% url 'movie-delete' movie.id %}" class="btn danger">Delete</a>
+        </div>
+    </div>
 </section>
 
 <hr />
 
 <section class="actors">
-  <div class="subsection-title">
-    <h2>Actors</h2>
-    <img src="{% static 'images/movie-star.svg' %}" alt="Movie Star" />
-  </div>
+    <div class="subsection-title">
+        <h2>Actors</h2>
+        <img src="{% static 'images/movie-star.svg' %}" alt="Movie Star" />
+    </div>
+<div class="subsection-content">
+    {% if movie.actors.count %}
+<ul>
+    {% for actor in movie.actors.all %}
+<li>
+    {{ actor.name }} — <em>{{ actor.bio }}</em>
+<a href="{% url 'remove-actor' movie.id actor.id %}" class="btn danger">Remove</a>
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p><em>No actors associated with this movie yet.</em></p>
+{% endif %}
+</div>
 
-  <div class="subsection-content">
-    {% if movie.actors.count %}
-      <ul>
-        {% for actor in movie.actors.all %}
-          <li>
-            {{ actor.name }} — <em>{{ actor.bio }}</em>
-            <a href="{% url 'remove-actor' movie.id actor.id %}" class="btn danger">Remove</a>
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p><em>No actors associated with this movie yet.</em></p>
-    {% endif %}
-  </div>
-
-  <h3>Add an Actor</h3>
-  <form action="{% url 'associate-actor' movie.id %}" method="POST">
-    {% csrf_token %}
-    <select name="actor_id">
-      {% for actor in available_actors %}
-        <option value="{{ actor.id }}">{{ actor.name }}</option>
-      {% endfor %}
-    </select>
-    <button type="submit" class="btn submit">Add Actor</button>
-  </form>
+<h3>Add an Actor</h3>
+{% for actor in available_actors %}
+<form action="{% url 'associate-actor' movie.id actor.id%}" method="POST">
+    {% csrf_token %}
+    <select name="actor_id">
+        <option value="{{ actor.id }}">{{ actor.name }}</option>
+    </select>
+    <button type="submit" class="btn submit">Add Actor</button>
+</form>
+{% endfor %}
 </section>
 {% endblock %}
