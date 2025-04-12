@@ -4,14 +4,14 @@
 
 <div class="page-header">
   <h1>Delete actor?</h1>
-  <img src="{% static 'images/nerd-movie.svg' %}" alt="A movie using a computer" />
+  <img src="{% static 'images/cont-alt-del.jpg' %}" alt="Control+alt+delete" />
 </div>
 <h2>Are you sure you want to delete {{ object.name }}?</h2>
 
 <form action="" method="post" class="form">
   {% csrf_token %}
-  <a href="{% url 'movie-detail' movie.id %}" class="btn secondary"> Cancel </a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
+  <a href="{% url 'movie-detail' movie.id %}" class="btn secondary">Cancel</a>
+  <button type="submit" class="btn danger">Delete</button>
 </form>
 
 {% endblock %}

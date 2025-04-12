@@ -4,7 +4,7 @@
 
 <div class="page-header">
   <h1>Delete actor?</h1>
-  <img src="{% static 'images/nerd-actor.svg' %}" alt="A actor using a computer" />
+  <img src="{% static 'images/sad-actor.jpg' %}" alt="A sad actor" />
 </div>
 
 <h2>Are you sure you want to delete {{ actor.name }}?</h2>
@@ -12,7 +12,7 @@
 <form action="" method="post" class="form">
   {% csrf_token %}
   <a href="{% url 'actor-detail' actor.id %}" class="btn secondary">Cancel</a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
+  <button type="submit" class="btn danger">Delete</button>
 </form>
 
 {% endblock %}
