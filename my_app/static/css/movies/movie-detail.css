@@ -1,52 +1,91 @@
+/* Estructura principal */
 main {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    min-height: auto;
-  }
-  
-  .card {
-    width: 224px;
-    height: 224px;
-    margin: 25px 25px 15px 40px;
-    border: solid 2px;
-    box-shadow: var(--card-box-shadow);
-    position: relative;
-  }
-  
-  .card-bg {
-    opacity: 0.4;
-    position: absolute;
-    display: inline-flex;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .card-content {
-    padding: 15px;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    flex-direction: column;
-    color: var(--text-color);
-  }
-  
-  .btn {
-    margin-bottom: 15px;
-  }
-  
-  .card h2 {
-    margin: 7px 0;
-    font-size: var(--font-xl);
-    z-index: 1;
-  }
-  
-  .card p {
-    margin: 0;
-    font-size: var(--font-reg);
-    z-index: 1;
-  }
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+}
+
+/* Tarjetas */
+.card {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(4px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0px 12px 24px rgba(0,0,0,0.4);
+}
+
+/* Fondo de tarjeta */
+.card-bg {
+  opacity: 0.25;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.65);
+}
+
+/* Contenido de la tarjeta */
+.card-content {
+  position: relative;
+  z-index: 2;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #ffffff;
+}
+
+/* Título y descripción */
+.card h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.card p {
+  margin-top: 6px;
+  font-size: 1.4rem;
+  color: #dcdcdc;
+}
+
+/* Botones */
+.btn {
+  margin-top: 16px;
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #00b894;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  align-self: flex-start;
+  z-index: 2;
+}
+
+.btn:hover {
+  background-color: #019875;
+}

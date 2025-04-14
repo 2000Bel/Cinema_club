@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>Login</h1>
+  <img src="{% static 'images/frog.png' %}" alt="A movie watching login screen" />
+</div>
+
+{% if form.errors %}
+  <p class="red-text">Invalid username or password. Please try again.</p>
+{% endif %}
+
+<form method="post" class="form-container" autocomplete="off">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="btn submit">Login</button>
+</form>
+{% endblock %}

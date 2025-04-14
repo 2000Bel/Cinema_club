@@ -1,308 +1,178 @@
-/* static/css/base.css  */
-
+/* GLOBAL RESET */
 html {
-    box-sizing: border-box;
-  }
-  
-  /* The Universal Selector */
-  *, /* All elements*/
-  *::before, /* All ::before pseudo-elements */
-  *::after {
-    /* All ::after pseudo-elements */
-    /* height & width will now include border & padding by default
-       but can be over-ridden as needed */
-    box-sizing: inherit;
-  }
-  
-  /* resets font size to be 62.5% of the user preference - 
-       in most browser configurations this will be 10px */
-  :root {
-    font-size: 62.5%;
-  }
-  
-  body {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-      'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-      'Helvetica Neue', sans-serif;
-    min-height: 100vh;
-    --nav-bg: rgba(104, 197, 248, 0.7);
-    --nav-bg-ff: rgba(104, 197, 248, 0.9);
-    --borders: rgb(36, 116, 248) solid 2px;
-    --text-color: rgb(17, 20, 17);
-    --link-hover-color: rgb(16, 56, 158);
-    --button-bg: rgb(245, 245, 245);
-    --button-bg-hover: rgb(226, 226, 226);
-    --submit: rgb(26, 128, 0);
-    --warn: rgb(255, 102, 0);
-    --danger: rgb(220, 20, 30);
-    --secondary: rgb(57, 57, 57);
-    --card-box-shadow: 5px 5px 6px -1px #aaa;
-    --font-xtreme: 4.2rem;
-    --font-xxl: 3.6rem;
-    --font-xl: 2.4rem;
-    --font-l: 1.8rem;
-    --font-reg: 1.6rem;
-    --card-border-radius: 6px;
-  }
-  
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+:root {
+  font-size: 62.5%;
+  --primary-bg: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  --text-color: #ffffff;
+  --nav-bg: rgba(104, 197, 248, 0.7);
+  --nav-bg-ff: rgba(104, 197, 248, 0.9);
+  --link-hover-color: #00cec9;
+  --button-bg: #2d3436;
+  --button-bg-hover: #636e72;
+  --submit: #00b894;
+  --warn: #fdcb6e;
+  --danger: #d63031;
+  --secondary: #b2bec3;
+  --card-box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  --card-border-radius: 10px;
+  --font-xtreme: 4.2rem;
+  --font-xxl: 3.2rem;
+  --font-xl: 2.4rem;
+  --font-l: 1.8rem;
+  --font-reg: 1.6rem;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-color);
+}
+
+/* HEADER & NAV */
+header {
+  width: 100%;
+  padding: 10px 20px;
+  background: var(--nav-bg-ff);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #81ecec;
+  backdrop-filter: blur(6px);
+}
+
+header h1 {
+  font-size: var(--font-xxl);
+  margin: 0;
+}
+
+.header-log-container img {
+  height: 60px;
+  border-radius: 12px;
+  box-shadow: var(--card-box-shadow);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+nav a,
+#logout-form button {
+  text-decoration: none;
+  font-size: var(--font-reg);
+  font-weight: 600;
+  color: var(--text-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+nav a:hover,
+#logout-form button:hover {
+  color: var(--link-hover-color);
+}
+
+/* MAIN */
+main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* BUTTONS */
+.btn {
+  font-size: var(--font-l);
+  padding: 10px 18px;
+  border-radius: var(--card-border-radius);
+  border: none;
+  font-weight: 600;
+  background-color: var(--button-bg);
+  color: white;
+  cursor: pointer;
+  box-shadow: var(--card-box-shadow);
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--button-bg-hover);
+}
+
+.submit {
+  background-color: var(--submit);
+}
+
+.warn {
+  background-color: var(--warn);
+}
+
+.danger {
+  background-color: var(--danger);
+}
+
+.secondary {
+  background-color: var(--secondary);
+}
+
+/* PAGE HEADERS */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.page-header h1 {
+  font-size: var(--font-xl);
+}
+
+.page-header img {
+  height: 50px;
+  border-radius: 8px;
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-size: var(--font-xl);
+  margin-bottom: 10px;
+}
+
+.page-content {
+  font-size: var(--font-reg);
+}
+
+/* RESPONSIVE STYLES */
+@media only screen and (min-width: 768px) {
   header {
-    width: 100%;
-    background: var(--nav-bg-ff); /* rgba(104, 197, 248, .9) */
-    border-bottom: var(--borders);
-  }
-  
-  nav {
-    margin: 10px;
-  }
-  
-  ul {
-    margin: 0;
-    list-style: none;
-    padding: 0;
-  }
-  
-  main {
-    width: 100%;
-    padding: 0 10px;
-  }
-  
-  h2 {
-    font-size: var(--font-xl);
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 16px;
-  }
-  
-  nav a:hover {
-    color: var(--link-hover-color);
-  }
-  
-  nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  nav li {
-    padding: 5px 8px;
-  }
-  
-  .header-logo-container {
-    margin: auto;
-    padding: 10px 20px 0;
-    max-width: 500px;
-  }
-  
-  .page-header {
-    display: flex;
-    align-items: center;
-    margin: 20px;
-  }
-  
-  .btn {
-    font-size: var(--font-l);
-    padding: 8px 16px;
-    border-radius: 6px;
-    border-width: 2px;
-    border-style: solid;
-    text-decoration: none;
-    background-color: var(--button-bg);
-    font-weight: 600;
-    cursor: pointer;
-    font-family: inherit;
-    margin-right: 10px;
-  }
-  
-  .btn:hover {
-    background-color: var(--button-bg-hover);
-  }
-  
-  .submit {
-    color: var(--submit);
-    border-color: var(--submit);
-  }
-  
-  .secondary {
-    color: var(--secondary);
-    border-color: var(--secondary);
-  }
-  
-  .warn {
-    color: var(--warn);
-    border-color: var(--warn);
-  }
-  
-  .danger {
-    color: var(--danger);
-    border-color: var(--danger);
-  }
-  
-  .page-header h1 {
-    font-size: var(--font-xxl);
-    margin: 0;
-  }
-  
-  .page-header img {
-    height: 40px;
-    margin-left: 15px;
-  }
-  
-  .page-header img:first-of-type {
-    margin-left: 20px;
-  }
-  
-  .page-content {
-    font-size: var(--font-reg);
-  }
-  
-  @media only screen and (min-width: 768px) {
-    header {
-      position: sticky;
-      display: flex;
-      flex-direction: row;
-      top: 0;
-      align-items: center;
-    }
-  
-    main {
-      max-width: 1300px;
-      min-height: calc(100vh - 53px);
-    }
-  
-    nav,
-    .header-logo-container {
-      margin: 10px 0;
-      padding: 0 15px;
-    }
-  
-    /* visual fix to help align logo */
-    .header-logo-container {
-      padding-top: 3px;
-    }
-  
-    nav {
-      margin-left: auto;
-      display: flex;
-      justify-content: center;
-    }
-  
-    nav ul {
-      flex-wrap: nowrap;
-    }
-  
-    .header-logo-container {
-      width: 213px;
-    }
-  
-    .page-header h1 {
-      font-size: var(--font-xtreme);
-    }
-  
-    .page-header img {
-      height: 50px;
-      margin-left: 20px;
-    }
-  
-    .page-header img:first-of-type {
-      margin-left: 25px;
-    }
-  
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      header {
-        background: var(--nav-bg);
-        -webkit-backdrop-filter: blur(3px);
-        backdrop-filter: blur(3px);
-      }
-    }
-  }
-  
-  @media only screen and (min-width: 1024px) {
-    main {
-      min-height: calc(100vh - 55px);
-    }
-  
-    header {
-      margin: 20px 20px 0 20px;
-      width: calc(100vw - 40px);
-      max-width: 1920px;
-      top: 20px;
-      background-color: transparent;
-      border-bottom: none;
-    }
-  
-    nav,
-    .header-logo-container {
-      margin: 0;
-      background: var(--nav-bg-ff);
-      border: var(--borders);
-      border-radius: 18px;
-    }
-  
-    nav {
-      margin-left: auto;
-    }
-  
-    .header-logo-container {
-      /* visual fix to help align logo */
-      padding-top: 6px;
-      width: 256px;
-      height: 35px;
-    }
-  
-    @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-      header {
-        -webkit-backdrop-filter: none;
-        backdrop-filter: none;
-      }
-  
-      nav,
-      .header-logo-container {
-        background: rgba(104, 197, 248, 0.6);
-        -webkit-backdrop-filter: blur(3px);
-        backdrop-filter: blur(3px);
-      }
-    }
+    padding: 20px 40px;
   }
 
-  #logout-form button {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 16px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-family: inherit;
+  .header-log-container img {
+    height: 80px;
   }
-  
-  #logout-form button:hover {
-    color: var(--link-hover-color);
+
+  nav {
+    gap: 24px;
   }
-  
-  
-#logout-form button {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 16px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    font-family: inherit;
+
+  .page-header h1 {
+    font-size: var(--font-xtreme);
   }
-  
-  #logout-form button:hover {
-    color: var(--link-hover-color);
-  }
-  
+}
