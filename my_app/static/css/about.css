@@ -2,48 +2,51 @@
     padding: 60px 20px;
     max-width: 1200px;
     margin: auto;
-    color: #ffffff;
+    color: #2d3436;
+    background: radial-gradient(circle, #13bcff 0%, #ffffff 100%);
   }
   
   .about-intro {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
     margin-bottom: 60px;
+    align-items: center;
   }
   
   .about-text {
-    flex: 1;
-    min-width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
   
   .about-text h2 {
-    font-size: 2.8rem;
+    font-size: 2.6rem;
+    color: #000000;
     margin-bottom: 16px;
   }
   
   .about-text p,
   .about-text ul {
-    font-size: 1.6rem;
-    line-height: 1.6;
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: #555;
   }
   
   .about-text ul {
-    list-style: disc inside;
+    list-style: circle inside;
     margin-top: 10px;
   }
   
   .about-image {
-    flex: 1;
-    min-width: 300px;
     text-align: center;
   }
   
   .about-image img {
     max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
   
   /* Features grid */
@@ -55,21 +58,26 @@
   }
   
   .feature-card {
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 24px 20px;
     width: 280px;
-    text-align: center;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(6px);
+    text-align: left;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
   }
   
   .feature-card h3 {
     font-size: 1.8rem;
+    color: #2c3e50;
     margin-bottom: 10px;
   }
   
   .feature-card p {
     font-size: 1.4rem;
-    color: #dcdcdc;
+    color: #636e72;
   }
