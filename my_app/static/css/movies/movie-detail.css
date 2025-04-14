@@ -1,91 +1,193 @@
-/* Estructura principal */
-main {
+/* Contenedor principal */
+.movie-container {
+  padding: 40px 30px;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 24px;
-  padding: 20px;
+  justify-content: center;
   background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  min-height: 100vh;
+  color: #ffffff;
+  flex-wrap: wrap;
+  gap: 40px;
 }
 
-/* Tarjetas */
-.card {
-  width: 250px;
-  height: 250px;
-  position: relative;
+/* Detalles de la película */
+.movie-details {
+  max-width: 600px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
+  padding: 30px;
   border-radius: 16px;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(4px);
-  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
-/* Hover */
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0px 12px 24px rgba(0,0,0,0.4);
+.movie-details h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
 }
 
-/* Fondo de tarjeta */
-.card-bg {
-  opacity: 0.25;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-  filter: brightness(0.65);
+.movie-details h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #dfe6e9;
 }
 
-/* Contenido de la tarjeta */
-.card-content {
-  position: relative;
-  z-index: 2;
-  padding: 20px;
-  height: 100%;
+.movie-details p {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Imagen del póster pequeña */
+.movie-details img {
+  width: 160px;
+  height: auto;
+  border-radius: 12px;
+  margin: 15px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Estrellas de rating */
+.movie-details p:nth-of-type(2) {
+  font-size: 1.6rem;
+  color: gold;
+}
+
+/* Botones editar/eliminar */
+.movie-actions {
+  margin-top: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-  color: #ffffff;
+  gap: 14px;
+  flex-wrap: wrap;
 }
 
-/* Título y descripción */
-.card h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #ffffff;
-}
-
-.card p {
-  margin-top: 6px;
-  font-size: 1.4rem;
-  color: #dcdcdc;
-}
-
-/* Botones */
 .btn {
-  margin-top: 16px;
-  padding: 10px 20px;
+  padding: 8px 16px;
   font-size: 1.4rem;
   font-weight: bold;
-  border-radius: 8px;
-  background-color: #00b894;
-  color: #ffffff;
-  border: none;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background 0.3s ease;
-  align-self: flex-start;
-  z-index: 2;
+  border: none;
+  transition: background 0.3s;
 }
 
-.btn:hover {
+.btn.warn {
+  background-color: #fdcb6e;
+  color: #2d3436;
+}
+
+.btn.warn:hover {
+  background-color: #fbc531;
+}
+
+.btn.danger {
+  background-color: #3b30d6;
+  color: #ffffff;
+}
+
+.btn.danger:hover {
+  background-color: #c0392b;
+}
+
+.btn.submit {
+  background-color: #00b894;
+  color: #fff;
+}
+
+.btn.submit:hover {
   background-color: #019875;
+}
+
+/* ACTORES */
+.actors {
+  padding: 40px 30px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.subsection-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.subsection-title h2 {
+  font-size: 2.4rem;
+}
+
+.subsection-title img {
+  height: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* Actor Cards */
+.actor-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(3px);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  flex-wrap: wrap;
+}
+
+.actor-container p {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+
+.actor-container a {
+  text-decoration: none;
+  color: #81ecec;
+  font-weight: bold;
+}
+
+.bio-block {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}
+
+/* Mensajes */
+.no-actors,
+.all-actors {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.no-actors {
+  color: #d63031;
+}
+
+.all-actors {
+  color: #00b894;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .movie-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .movie-details {
+    width: 90%;
+  }
+
+  .actors {
+    padding: 30px 15px;
+  }
+}
+.actors-img {
+  height: 60px;     /* ajusta según lo que necesites */
+  width: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }

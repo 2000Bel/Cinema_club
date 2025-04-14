@@ -1,66 +1,39 @@
-/* Título del formulario */
-.page-header h1 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2.8rem;
-  color: #ffffff;
-}
-
-/* Contenedor general del formulario */
 .form-container {
-  max-width: 600px;
-  margin: auto;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(6px);
-}
-
-/* Espaciado entre campos */
-.form-fields p {
-  margin-bottom: 20px;
-}
-
-/* Etiquetas */
-.form-fields label {
-  font-weight: 600;
-  display: block;
-  margin-bottom: 6px;
-  font-size: 1.5rem;
-  color: #ffffff;
-}
-
-/* Inputs, selects, textareas */
-.form-fields input,
-.form-fields select,
-.form-fields textarea {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  padding: 12px;
-  font-size: 1.5rem;
-  border-radius: 8px;
-  border: none;
-  background-color: #f1f1f1;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Botón submit */
-.btn.submit {
-  background-color: #00b894;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  margin-top: 25px;
-  display: block;
+table {
+  padding: 0 40px;
   width: 100%;
-  font-size: 1.6rem;
-  font-weight: bold;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: background 0.3s ease;
+  border-spacing: 0 20px;
 }
 
-.btn.submit:hover {
-  background-color: #019875;
+th {
+  text-align: left;
+  padding: 6px 20px 0 0;
+  font-weight: normal;
+  vertical-align: top;
+  font-size: var(--font-reg);
+}
+
+td {
+  max-width: 60%;
+}
+
+td > * {
+  width: 100%;
+  padding: 2px 4px;
+  font-size: var(--font-l);
+}
+
+td > textarea {
+  height: calc(4 * var(--font-l) + 8px);
+  font-family: inherit;
+}
+
+.btn {
+  align-self: flex-end;
+  margin-right: 40px;
 }

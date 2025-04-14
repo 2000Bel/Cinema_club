@@ -26,17 +26,28 @@ Movie Buff is a full-stack Django web application designed for film enthusiasts 
 	•	Accessibility & UI: The app follows accessibility standards with readable contrast, alt text for images, and styled buttons throughout.
 
 >>Tech Stack
-	•	Backend: Django, Python, PostgreSQL
+	•	Backend: Django, Python3, PostgreSQL
 	•	Frontend: HTML, CSS, Django Templates
 	•	Authentication: Django Sessions
-	•	Deployment: [Deployment platform, e.g., Render or Heroku]
-	•	Version Control: Git & GitHub
+	•	Deployment: [Heroku]
+	•	Version Control: GitHub
 
 
 ## Next steps: 
-1. Include a calendar to be able to date each task
-2. Include more images
-3. Include a trash can to store deleted tasks
+Next Steps: Future Enhancements for Movie Buff
+	1.	User Profiles Favorites
+	•	Allow users to “like” or favorite movies and actors, storing that relationship in a new model.
+	2.	Search and Filter Functionality
+	•	Implement a search bar to look up movies or actors by name, genre, or release year.
+	3.	Movie Reviews and Ratings
+	•	Display average ratings and most reviewed movies.
+	4.	Comments Section
+	•	Add a commenting system where users can discuss specific movies.
+	5.	Responsive Design Improvements
+	•	Refine the mobile experience with additional responsive CSS and test across various screen sizes.
+	6.	Image Hosting and Optimization
+	•	Integrate an external image hosting service (like Cloudinary) for better image handling and performance.
+
 
 # Django CRUD App Project - Evaluation Checklist
 

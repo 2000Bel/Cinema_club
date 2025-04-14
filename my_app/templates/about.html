@@ -1,5 +1,43 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock %}
+
 {% block content %}
-  <h2>About Movie Buff</h2>
-  <p>This is an app to help you organize and explore your movie collection.</p>
+<section class="about-container">
+  <div class="about-intro">
+    <div class="about-text">
+      <h2>About Movie Buff</h2>
+      <p>
+        Movie Buff is your personal movie assistant. Whether you're a casual viewer or a true cinephile, this app helps you:
+      </p>
+      <ul>
+        <li>Track and manage your movie collection</li>
+        <li>Rate and review your favorite films</li>
+        <li>Associate actors and discover connections</li>
+        <li>Explore by genre, year, and more</li>
+      </ul>
+    </div>
+    <div class="about-image">
+      <img src="{% static 'images/guys-cinema.jpg' %}" alt="Movie Buff Illustration">
+    </div>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Modern UI</h3>
+      <p>Enjoy a clean and responsive interface designed for movie lovers.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Actor Integration</h3>
+      <p>Link actors to movies and explore filmographies effortlessly.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Authentication</h3>
+      <p>Secure access to your personalized collection with login/signup features.</p>
+    </div>
+  </div>
+</section>
 {% endblock %}
