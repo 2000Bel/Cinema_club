@@ -4,8 +4,6 @@ main {
   justify-content: center;
   flex-wrap: wrap;
   min-height: 100vh;
-  background: url(../images/the-movie-buff.jpg) no-repeat center center fixed;
-  background-size: cover;
   padding: 40px 20px;
   font-family: 'Segoe UI', sans-serif;
 }
@@ -29,32 +27,12 @@ main > section {
 }
 
 .logo-container {
-  max-width: 100%;
+  max-width: 320px;
   margin-bottom: 24px;
-}
-
-.logo-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
 }
 
 .movie-container {
   width: 100%;
-}
-
-.movie-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
 }
 
 .login {

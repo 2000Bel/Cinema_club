@@ -1,13 +1,13 @@
 # Movie Buff
 
 ## Logo:
-![Logotype](my_app/static/images/logo.jpeg)
-
-## GitHub repository link:
-[Cinema_club](https://github.com/2000Bel/Cinema_club.git)
+![Logotype](my_app/static/images/frog.png)
 
 ## trello link:
 [Planning board](https://github.com/2000Bel/Cinema_club.git)
+
+## GitHub repository link:
+[Cinema_club](https://github.com/2000Bel/Cinema_club.git)
 
 ## Deployed app link:
 [MovieBuff]()
@@ -35,21 +35,16 @@ Movie Buff is a full-stack Django web application designed for film enthusiasts 
 
 ## Next steps: 
 Next Steps: Future Enhancements for Movie Buff
-	1.	User Profiles Favorites
-	•	Allow users to “like” or favorite movies and actors, storing that relationship in a new model.
-	2.	Search and Filter Functionality
-	•	Implement a search bar to look up movies or actors by name, genre, or release year.
-	3.	Movie Reviews and Ratings
-	•	Display average ratings and most reviewed movies.
-	4.	Comments Section
-	•	Add a commenting system where users can discuss specific movies.
-	5.	Responsive Design Improvements
-	•	Refine the mobile experience with additional responsive CSS and test across various screen sizes.
-	6.	Image Hosting and Optimization
-	•	Integrate an external image hosting service (like Cloudinary) for better image handling and performance.
 
+1.  User Profiles Favorites: Allow users to “like” or favorite movies and actors, storing that relationship in a new model.
+2.	Search and Filter Functionality: Implement a search bar to look up movies or actors by name, genre, or release year.
+3.	Movie Reviews and Ratings: Display average ratings and most reviewed movies.
+4.	Comments Section: Add a commenting system where users can discuss specific movies.
+5.	Responsive Design Improvements: Refine the mobile experience with additional responsive CSS and test across various screen sizes.
+6.	Image Hosting and Optimization:Integrate an external image hosting service (like Cloudinary) for better image handling and performance.
 
-# Django CRUD App Project - Evaluation Checklist
+# Django CRUD App Project
+# Evaluation Checklist
 
 ## Technical Requirements - MVP
 
