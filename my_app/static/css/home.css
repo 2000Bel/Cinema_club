@@ -39,19 +39,25 @@ main > section {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .login h1 {
   font-size: 2.5rem;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
   color: #1f2f90;
+  text-align: center;
 }
 
+.login > div,
 .login > p {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .login label {
@@ -67,6 +73,8 @@ main > section {
   border-radius: 8px;
   outline: none;
   transition: border 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .login input:focus {

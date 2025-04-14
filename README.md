@@ -10,7 +10,7 @@
 [Cinema_club](https://github.com/2000Bel/Cinema_club.git)
 
 ## Deployed app link:
-[MovieBuff]()
+[MovieBuff](https://movie-buff-9706d1877721.herokuapp.com/)
 
 ## Project Explanation:
 Movie Buff is a full-stack Django web application designed for film enthusiasts to create and manage their personal movie catalog. The app allows registered users to organize, explore, and keep track of movies and the actors who star in them. It supports full CRUD (Create, Read, Update, Delete) functionality and incorporates user authentication and authorization to ensure that only the data owner can modify or delete content.
