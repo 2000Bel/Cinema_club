@@ -2,38 +2,65 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
 }
 
 table {
-  padding: 0 40px;
   width: 100%;
   border-spacing: 0 20px;
 }
 
 th {
   text-align: left;
-  padding: 6px 20px 0 0;
-  font-weight: normal;
-  vertical-align: top;
-  font-size: var(--font-reg);
+  padding-bottom: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #1f2f90;
 }
 
 td {
-  max-width: 60%;
+  max-width: 100%;
 }
 
 td > * {
   width: 100%;
-  padding: 2px 4px;
-  font-size: var(--font-l);
+  padding: 10px 14px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+td > *:focus {
+  border-color: #8a4fff;
 }
 
 td > textarea {
-  height: calc(4 * var(--font-l) + 8px);
+  height: 120px;
+  resize: vertical;
   font-family: inherit;
 }
 
 .btn {
   align-self: flex-end;
-  margin-right: 40px;
+  padding: 12px 24px;
+  background-color: #8a4fff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn:hover {
+  background-color: #6d3eea;
 }
